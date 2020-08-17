@@ -1,34 +1,36 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export const Container = styled.SafeAreaView`
   flex: 1;
 `;
 
-export const MiniPlayer = styled.TouchableOpacity`
-    flex-direction: row;
-    background: #171717;
-    padding: 16px;
-    padding-bottom: 32px;
-    align-items: center;
-    justify-content: space-between;
+export const Title = styled.Text`
+  color: #fff;
+  font-size: 56px;
+  padding: 16px;
+`;
+export const Subtitle = styled.Text`
+  color: #fff;
+  font-size: 32px;
+  padding: 4px 16px;
+`;
+export const PodcastList = styled.ScrollView`
+  max-height: 128px;
 `;
 
-export const MiniPlayerInfo = styled.View`
-    justify-content: space-around;
+export const PodcastTile = styled.TouchableOpacity`
+  justify-content: center;
+  align-items: center;
 `
 
-export const MiniPlayerImage = styled.Image`
-    height: 72;
-    width: 72;
+export const PodcastTitle = styled.Text`
+  color: #fff;
+  font-size: 16px;
+
+`
+
+export const PodcastImage = styled.Image`
+  height: 88;
+  width: 88;
+  margin: 8px;
 `;
-
-export const MiniPlayerTitle = styled.Text`
-    color: #fff;
-    font-size: 24px;
-`
-
-export const MiniPlayerSubtitle = styled.Text`
-color: #bbb;
-font-size: 16px;
-
-`

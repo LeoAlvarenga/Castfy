@@ -1,43 +1,63 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Button } from "react-native";
+import { Button } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import {
-  MiniPlayer,
   Container,
-  MiniPlayerImage,
-  MiniPlayerTitle,
-  MiniPlayerInfo,
-  MiniPlayerSubtitle,
+  Title,
+  Subtitle,
+  PodcastList,
+  PodcastImage,
+  PodcastTile,
+  PodcastTitle,
 } from "./styles";
-import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-
-// import { Container } from './styles';
+import MiniPlayer from "../../components/MiniPlayer";
 
 const Home: React.FC = () => {
-
-    const navigation = useNavigation()
+  const navigation = useNavigation();
 
   return (
     <LinearGradient style={{ flex: 1 }} colors={["#464749", "#1b1a1f"]}>
       <Container>
-          <Button title="Clicar" onPress={() => navigation.navigate("Main", { screen: 'Details' })}/>
+        <Title>Podcasts</Title>
+        <Subtitle>Favoritos</Subtitle>
+        <PodcastList horizontal>
+          <PodcastTile>
+            <PodcastImage
+              source={{
+                uri:
+                  "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+              }}
+            />
+            <PodcastTitle>Podcast</PodcastTitle>
+          </PodcastTile>
+        </PodcastList>
+        <Subtitle>Atualizados Recentemente</Subtitle>
+        <PodcastList horizontal>
+          <PodcastTile>
+            <PodcastImage
+              source={{
+                uri:
+                  "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+              }}
+            />
+            <PodcastTitle>Podcast</PodcastTitle>
+          </PodcastTile>
+        </PodcastList>
+        <Subtitle>Todos</Subtitle>
+        <PodcastList horizontal>
+          <PodcastTile>
+            <PodcastImage
+              source={{
+                uri:
+                  "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+              }}
+            />
+            <PodcastTitle>Podcast</PodcastTitle>
+          </PodcastTile>
+        </PodcastList>
       </Container>
-      <MiniPlayer activeOpacity={0.7} onPress={() => navigation.navigate('Player')} >
-        <MiniPlayerImage
-          source={{
-            uri:
-              "https://uploads.jovemnerd.com.br/wp-content/uploads/2020/08/NC_738_lendas_da_segunda_guerra-1210x544.jpg",
-          }}
-        />
-        <MiniPlayerInfo>
-          <MiniPlayerTitle>Meu Podcast #666</MiniPlayerTitle>
-          <MiniPlayerSubtitle>Autor</MiniPlayerSubtitle>
-        </MiniPlayerInfo>
-        <TouchableOpacity activeOpacity={0.7} >
-          <MaterialIcons name="play-circle-filled" color="#fff" size={56} />
-        </TouchableOpacity>
-      </MiniPlayer>
+      <MiniPlayer />
     </LinearGradient>
   );
 };

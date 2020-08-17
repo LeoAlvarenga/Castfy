@@ -22,13 +22,17 @@ import {
   ControlSlider,
   AudioSlider,
 } from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
 const Player: React.FC = () => {
+
+  const navigation = useNavigation()
+
   return (
     <LinearGradient colors={["#464749", "#1b1a1f"]} style={{ flex: 1 }}>
       <TopBar>
         <Left>
-          <Icon name="chevron-down" size={20} color="white" />
+          <Icon name="chevron-down" size={20} color="white" onPress={() => navigation.goBack()} />
         </Left>
         <Middle>
           <Title>Tocando Podcast</Title>
