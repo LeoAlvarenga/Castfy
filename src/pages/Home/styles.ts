@@ -18,6 +18,12 @@ export const PodcastList = styled.ScrollView`
   max-height: 128px;
 `;
 
+export const PodcastGrid = styled.View`
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
 export const PodcastTile = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
@@ -30,7 +36,7 @@ export const PodcastTitle = styled.Text`
 `
 
 export const PodcastImage = styled.Image`
-  height: 88;
-  width: 88;
-  margin: 8px;
+  height: 90;
+  width: 90;
+  margin: 6px;
 `;

@@ -3,7 +3,7 @@ import { fromBottom } from "react-navigation-transitions";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../pages/Home";
 import Player from "../pages/Player";
-import Details from "../pages/Details/indes";
+import Details from "../pages/Details";
 const App = createStackNavigator();
 
 const MainRoutes: React.FC = () => (
@@ -22,7 +22,18 @@ const MainRoutes: React.FC = () => (
     />
     <App.Screen
       options={{
-        headerShown: false,
+        headerShown: true,
+        headerTransparent: true,
+        headerTitleStyle: {
+          color: '#fff',
+          fontSize: '24px'
+        },
+        headerTitle: 'Meu Podcast',
+        headerBackTitle: '',
+        headerBackTitleStyle: {
+          color: "#fff"
+        },
+        headerBackTitleVisible: false
       }}
       name="Details"
       component={Details}
@@ -36,7 +47,7 @@ const AppRoutes: React.FC = () => {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName="Home"
+      initialRouteName="Main"
       mode="modal"
     >
       <App.Screen

@@ -9,9 +9,11 @@ import {
   PodcastImage,
   PodcastTile,
   PodcastTitle,
+  PodcastGrid,
 } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import MiniPlayer from "../../components/MiniPlayer";
+import { ScrollView } from "react-native-gesture-handler";
 
 interface IPodcasts {
   name: string;
@@ -91,9 +93,8 @@ const Home: React.FC = () => {
       name: "podcast 14",
       imageUri:
         "https://images.unsplash.com/photo-1559523161-0fc0d8b38a7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1058&q=80",
-    }
+    },
   ];
-
 
   return (
     <LinearGradient style={{ flex: 1 }} colors={["#464749", "#1b1a1f"]}>
@@ -102,7 +103,7 @@ const Home: React.FC = () => {
         <Subtitle>Favoritos</Subtitle>
         <PodcastList horizontal>
           {podcasts.map((podcast) => (
-            <PodcastTile>
+            <PodcastTile onPress={() => navigation.navigate("Details")} >
               <PodcastImage
                 source={{
                   uri: podcast.imageUri,
@@ -115,7 +116,7 @@ const Home: React.FC = () => {
         <Subtitle>Atualizados Recentemente</Subtitle>
         <PodcastList horizontal>
           {podcasts.reverse().map((podcast) => (
-            <PodcastTile>
+            <PodcastTile onPress={() => navigation.navigate("Details")} >
               <PodcastImage
                 source={{
                   uri: podcast.imageUri,
@@ -126,18 +127,20 @@ const Home: React.FC = () => {
           ))}
         </PodcastList>
         <Subtitle>Todos</Subtitle>
-        <PodcastList horizontal>
-          {podcasts.reverse().map((podcast) => (
-            <PodcastTile>
-              <PodcastImage
-                source={{
-                  uri: podcast.imageUri,
-                }}
-              />
-              <PodcastTitle>{podcast.name}</PodcastTitle>
-            </PodcastTile>
-          ))}
-        </PodcastList>
+        <ScrollView>
+          <PodcastGrid>
+            {podcasts.reverse().map((podcast) => (
+              <PodcastTile onPress={() => navigation.navigate("Details")} >
+                <PodcastImage
+                  source={{
+                    uri: podcast.imageUri,
+                  }}
+                />
+                <PodcastTitle>{podcast.name}</PodcastTitle>
+              </PodcastTile>
+            ))}
+          </PodcastGrid>
+        </ScrollView>
       </Container>
       <MiniPlayer />
     </LinearGradient>
