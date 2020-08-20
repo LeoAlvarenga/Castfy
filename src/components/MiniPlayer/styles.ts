@@ -15,8 +15,8 @@ export const MiniPlayerInfo = styled.View`
 `;
 
 export const MiniPlayerImage = styled.Image`
-  height: 72;
-  width: 72;
+  height: 72px;
+  width: 72px;
   flex: 1;
 `;
 

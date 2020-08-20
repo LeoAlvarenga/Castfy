@@ -103,7 +103,7 @@ const Home: React.FC = () => {
         <Subtitle>Favoritos</Subtitle>
         <PodcastList horizontal>
           {podcasts.map((podcast) => (
-            <PodcastTile onPress={() => navigation.navigate("Details")} >
+            <PodcastTile key={podcast.name} onPress={() => navigation.navigate("Details")} >
               <PodcastImage
                 source={{
                   uri: podcast.imageUri,
@@ -116,7 +116,7 @@ const Home: React.FC = () => {
         <Subtitle>Atualizados Recentemente</Subtitle>
         <PodcastList horizontal>
           {podcasts.reverse().map((podcast) => (
-            <PodcastTile onPress={() => navigation.navigate("Details")} >
+            <PodcastTile key={podcast.name} onPress={() => navigation.navigate("Details")} >
               <PodcastImage
                 source={{
                   uri: podcast.imageUri,
@@ -130,7 +130,7 @@ const Home: React.FC = () => {
         <ScrollView>
           <PodcastGrid>
             {podcasts.reverse().map((podcast) => (
-              <PodcastTile onPress={() => navigation.navigate("Details")} >
+              <PodcastTile key={podcast.name} onPress={() => navigation.navigate("Details")} >
                 <PodcastImage
                   source={{
                     uri: podcast.imageUri,
